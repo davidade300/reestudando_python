@@ -18,3 +18,5 @@ fusca.acelerar()
 
 celta = Carro("celta")
 print(celta.nome)
+
+Carro.acelerar(fusca)
