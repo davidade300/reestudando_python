@@ -1,23 +1,21 @@
-# @property - um getter Pythonico
-# @getter - um mpetodo para obter um atributo
-# @property é uma propriedade do objeto, ela é um método que se comporta como atributo,
-# geralmente é usado nas seguinte situações:
-# - como getter;
-# - p/ evitar qebrar código cliente;
-# - p/ habilitar setter;
-# - p/ executar ações ao obter um atributo
+# atributos que começam com um ou dois "_" não devem ser usados fora da classe.
 
 
-# em python, getter se comporta como atributo, é chamado sem os parentesis
-# codigo cliente é o codigo que usa seu codigo
 class Caneta:
     def __init__(self, cor: str) -> None:
-        self.cor_tinta = cor
+        # privte protected
+        self._cor = cor
+        # /\ se  refere a property, indica que o atributo é privado (convenção)
 
     @property  # faz um método se comportar como atributo, ações podem ser executadas
     def cor(self):
-        print("@property")
-        return self.cor_tinta
+        # print("@property")
+        return self._cor
+
+    @cor.setter
+    def cor(self, valor):
+        self._cor = valor
+        # print("setter \n" + valor)
 
     def mostrar(caneta):
         return caneta.cor
